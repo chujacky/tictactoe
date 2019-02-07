@@ -36,11 +36,14 @@ const runGame = (coordinate) => {
   coordinate -= 1;
   const row = Math.floor(coordinate/3);
   const col = coordinate % 3;
+  board[row][col] = player;
   if (checkRow(row) || checkCol(col)) {
     console.log(`${player} won`);
+    console.log(board[0]);
+    console.log(board[1]);
+    console.log(board[2]);
     process.exit();
   }
-  board[row][col] = player;
   player = player === 'X' ? 'O' : 'X';
   console.log(`${player}'s turn`);
   console.log(board[0]);
